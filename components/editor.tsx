@@ -38,7 +38,7 @@ const Editor = ({
     async function saveToStorage(jsonBlocks: Block[]) {
         // Save contents to local storage. You might want to debounce this or replace
         // with a call to your API / database.
-        localStorage.setItem("editorContent", JSON.stringify(jsonBlocks));
+        localStorage.setItem(idDocument, JSON.stringify(jsonBlocks));
         const content = JSON.stringify(jsonBlocks);
         update({
           id: idDocument,
@@ -48,7 +48,7 @@ const Editor = ({
        
       async function loadFromStorage() {
         // Gets the previously stored editor contents.
-        const storageString = localStorage.getItem("editorContent");
+        const storageString = localStorage.getItem(idDocument);
         return storageString
           ? (JSON.parse(storageString) as PartialBlock[])
           : undefined;
