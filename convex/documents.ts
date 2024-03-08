@@ -312,7 +312,7 @@ export const update = mutation ({
             throw new Error("Unauthorized");
         }
 
-        const document = await ctx.db.patch(args.id, {
+        const document = await ctx.db.patch(existingDocument._id, {
             ...rest,
         });
 
